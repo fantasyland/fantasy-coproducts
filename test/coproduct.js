@@ -3,7 +3,7 @@ var λ           = require('fantasy-check/src/adapters/nodeunit'),
     combinators = require('fantasy-combinators'),
     
     Identity  = require('fantasy-identities'),
-    Coproduct = require('../fantasy-coproducts'),
+    Coproduct = require('../fantasy-coproducts').Coproduct,
 
     identity = combinators.identity;
  
