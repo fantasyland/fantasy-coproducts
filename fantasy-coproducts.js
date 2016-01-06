@@ -1,4 +1,8 @@
-var Coproduct = require('./src/coproduct');
+var Coproduct = require('./src/coproduct'),
+    Inject    = require('./src/inject');
 
 if (typeof module != 'undefined')
-    module.exports = Coproduct;
+    module.exports = {
+        Coproduct: Coproduct,
+        Inject   : Inject
+    };
