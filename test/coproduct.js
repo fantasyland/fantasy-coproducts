@@ -1,20 +1,22 @@
-var λ           = require('fantasy-check/src/adapters/nodeunit'),
-    functor     = require('fantasy-check/src/laws/functor'),
-    combinators = require('fantasy-combinators'),
+const λ = require('fantasy-check/src/adapters/nodeunit');
+const functor = require('fantasy-check/src/laws/functor');
+const {identity} = require('fantasy-combinators');
     
-    Identity  = require('fantasy-identities'),
-    Coproduct = require('../fantasy-coproducts').Coproduct,
+const Identity  = require('fantasy-identities');
+const {Coproduct} = require('../fantasy-coproducts');
 
-    identity = combinators.identity;
- 
 function of(x) {
     return Coproduct.right(Identity.of(x));
+}
+
+function run(x) {
+    return x.run;
 }
 
 exports.coproduct = {
 
     // Functor tests
-    'All (Functor)': functor.laws(λ)(of, identity),
-    'Identity (Functor)': functor.identity(λ)(of, identity),
-    'Composition (Functor)': functor.composition(λ)(of, identity)
+    'All (Functor)': functor.laws(λ)(of, run),
+    'Identity (Functor)': functor.identity(λ)(of, run),
+    'Composition (Functor)': functor.composition(λ)(of, run)
 };
