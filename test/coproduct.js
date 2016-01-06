@@ -1,3 +1,5 @@
+'use strict';
+
 const λ = require('fantasy-check/src/adapters/nodeunit');
 const functor = require('fantasy-check/src/laws/functor');
 const {identity} = require('fantasy-combinators');
