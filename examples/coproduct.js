@@ -1,6 +1,6 @@
 'use strict';
 
-const {Coproduct} = require('../fantasy-coproducts');
+const Coproduct = require('../fantasy-coproducts');
 const Identity = require('fantasy-identities');
 const Option = require('fantasy-options');
 const {identity} = require('fantasy-combinators');

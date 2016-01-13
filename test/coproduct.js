@@ -5,7 +5,7 @@ const functor = require('fantasy-check/src/laws/functor');
 const {identity} = require('fantasy-combinators');
     
 const Identity  = require('fantasy-identities');
-const {Coproduct} = require('../fantasy-coproducts');
+const Coproduct = require('../fantasy-coproducts');
 
 function of(x) {
     return Coproduct.right(Identity.of(x));
