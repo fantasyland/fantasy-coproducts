@@ -4,6 +4,7 @@ const daggy = require('daggy');
 
 const {compose} = require('fantasy-combinators');
 const Either = require('fantasy-eithers');
+const {map} = require('fantasy-land');
 
 const Coproduct = daggy.tagged('run');
 
@@ -14,10 +15,9 @@ Coproduct.prototype.coproduct = function(f, g) {
     return this.run.fold(f, g);
 };
 
-Coproduct.prototype.map = function(f) {
-    const go = (x) => x.map(f);
+Coproduct.prototype[map] = function(f) {
+    const go = (x) => x[map](f);
     return Coproduct(this.coproduct(compose(Either.Left)(go), compose(Either.Right)(go)));
 };
 
-if (typeof module != 'undefined')
-    module.exports = Coproduct;
+module.exports = Coproduct;

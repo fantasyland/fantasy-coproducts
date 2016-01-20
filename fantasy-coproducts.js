@@ -1,4 +1,5 @@
+'use strict';
+
 const Coproduct = require('./src/coproduct');
 
-if (typeof module != 'undefined')
-    module.exports = Coproduct;
+module.exports = Coproduct;
